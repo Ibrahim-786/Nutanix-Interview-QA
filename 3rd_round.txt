@@ -1,0 +1,147 @@
+//1. What is the output?
+fun1 () {
+    int *p=10;
+    printf ("%d", *p);
+}
+//output
+//segfault
+
+//2. What is the output?
+fun2 () {
+    int i;
+    for (i=100; i>=0; --i)
+    printf("%d",i);
+}
+
+
+-2147483648  +2147483647
+
+
+//0 -42...
+
+//output
+//100 .... 0
+
+====================================================================================
+
+/* Implement a class Queue, using 2 Stacks, which can perform the following operations:
+Enqueue(): Insert a value into the queue at rear end.
+Dequeue(): Delete an element from the queue from front end.
+
+s1.push()       s2.push()
+s1.pop()        s2.pop()
+s1.top()        s2.top()
+s1.empty()      s2.empty()
+…
+*/
+
+
+s1.push(1)
+s1.push(2)
+s1.push(3)
+
+
+s2.push(s1.pop())
+s2.push(s1.pop())
+s2.push(s1.pop())
+
+
+s2.pop() //Dequeue
+
+
+s1.push(s2.pop())
+s1.push(s2.pop())
+s1.push(s2.pop())
+
+s1.push() //Dequeue
+================================================================================
+
+/* Allocate memory that is page size aligned. Assume PAGE_SIZE=4K.
+If possible implement free() to release the allocated memory. */
+
+int *ptr = malloc(sizeof(int));
+
+0--------4----6----8--------12------
+
+=================================================================================
+/* Implement a bit vector in C */
+/*Find the common elements or duplicates in a given set of integer arrays using bit vectors or bit arrays */
+/* int s1[] = {10, 20, 25, 15, 32}
+    int s2[] = {2, 8, 16, 25, 30}
+     Max value of array element could be 32.
+
+An array of boolean values. Helps to save memory.
+
+Bit vector: A bit array is an array data structure that compactly stores bits. It can be used to implement a simple set data structure. A bit array is effective at exploiting bit-level parallelism in hardware to perform operations quickly.
+*/
+
+
+int common_duplicates(int s1[],int s2[],int size){
+    
+    int arr[size];
+    int index =0;
+    for(int i=0;i<size;i++){
+        for(int j=0;j<size;j++)
+        {
+            if(s1[i]==s2[j])
+            {
+                arr[index++] = s1[i];
+                
+            }
+        }
+    }
+        
+    
+    
+}
+
+int common_duplicate_1(int s1[],int s2[],int size){
+    
+    int arr[size];
+    int index =0;
+    
+    for(int i=0;i<size;i++)
+    {
+        for(int j=0;j<size;j++)
+        {
+            int temp1,temp2;
+             if(s1[i]<s1[j])
+             {
+                 temp1 = s1[i];
+                 s1[i] = s1[j];
+                 s1[j] = temp1;
+                 
+                 temp1 = s2[i];
+                 s2[i] = s2[j];
+                 s2[j] = temp2;
+             }
+        }
+       
+        
+    }
+    
+    
+    for(int i=0;i<size;i++){
+       
+            if(s1[i]==s2[i])
+            {
+                arr[index++] = s1[i];
+                
+            }
+        
+    }
+    
+    
+        
+    
+    
+}
+
+
+
+
+
+
+
+
+
